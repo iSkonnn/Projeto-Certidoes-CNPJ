@@ -7,7 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.3
 
-cnpj = input("CNPJ: ");
+cnpj = input("CNPJ: ")
+cnpj = cnpj.replace(".", "").replace("/", "").replace("-", "")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf")
