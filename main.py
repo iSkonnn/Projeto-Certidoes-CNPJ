@@ -1,5 +1,5 @@
 import pyautogui
-import time
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -13,7 +13,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf")
 
 # espera o site carregar totalmente
-time.sleep(9)
+sleep(5)
 
 # ===== LOCALIZA O CAMPO DE CNPJ =====
 location = None
@@ -24,19 +24,19 @@ for i in range(5):
     )
     if location:
         break
-    time.sleep(1)
+    sleep(1)
 
 if not location:
     print("Campo de CNPJ NÃO encontrado")
     exit()
 
 pyautogui.click(location)
-time.sleep(0.5)
+sleep(0.2)
 pyautogui.write(cnpj, interval=0.05)
 print("CNPJ digitado")
 
 # ===== ESPERA UM POUCO ANTES DO BOTÃO =====
-time.sleep(1.5)
+sleep(0.7)
 
 # ===== LOCALIZA O BOTÃO CONSULTAR =====
 botao = None
@@ -47,7 +47,7 @@ for i in range(5):
     )
     if botao:
         break
-    time.sleep(1)
+    sleep(0.7)
 
 if not botao:
     print("Botão CONSULTAR NÃO encontrado")
