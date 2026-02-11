@@ -8,9 +8,20 @@ import tkinter as tk
 win = tk.Tk()
 y = 0
 
-win.geometry("500x500")
+win.geometry("600x600")
+win.resizable(False, False);
 win.title("Consulta CNPJ")
 
+
+credits = tk.Label(
+    win,
+    text = "Desenvolvido com ❤ por Luis Humberto & Rafael Dantas",
+    font=("Segoe UI", 11, "bold"),
+    fg="#333333",
+    bg=win["bg"]
+)
+
+credits.pack(side = "bottom")
 
 label = tk.Label(
     win,
@@ -27,7 +38,7 @@ entrada = tk.Text(
     font = ("Segoe UI", 12),
     wrap = "word",
     width = 33,
-    height = 15
+    height = 18
 )
 
 entrada.pack(pady = 15)
